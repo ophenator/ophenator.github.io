@@ -1,0 +1,272 @@
+@charset "utf-8";
+/* CSS for Potato Web Site  */
+
+/* This rule will style the main page body  */
+
+
+          
+
+   body {
+         background-color: rgb(7, 7, 7);     
+       color: rgb(0, 0, 0);
+       font-family: Gill Sans, sans-serif;
+       font-size: 1em;   
+       padding: 2px;
+       margin: 25px;       
+                               }
+
+                               li {
+   list-style-type: circle;
+}
+
+    /* headlines */
+    h1, h2, h3 {
+       font-family: "Times New Roman";
+       font-weight: bold;
+    }
+
+    h1 {
+        color: #000000;
+        font-size: 1.7em;
+    }
+
+    h2 {
+        color: #000000;
+        font-size: 1.2em;
+    }
+
+    h3 {
+    color: #a08237;
+    font-size: 1em;
+    }
+    
+
+
+     #edges {
+              background-color: rgb(248, 246, 246);
+              color: rgb(0, 0, 0);
+              margin: 25px;
+                background-image:url(backgroundpotatoes.jpg); 
+                background-repeat:repeat-y;         
+             }
+
+
+     p  {
+            padding-bottom:5px;
+                             }
+    /* hyperlink rules */
+    a {
+       color:#000000;
+    } 
+
+
+    a:link {
+       color: #a08237;
+    }
+    a:visited {
+       color: #2a3a02;
+    }
+    a:hover {
+       color: rgb(253, 28, 4);
+    }
+      a:active {
+       color: rgb(0, 255, 21);
+    }
+    /*containers*/
+
+        #main_content
+        {
+
+            float:right;
+            width: 65%;
+            margin-top:25px;
+            margin-right:25px;
+
+        }
+
+        #main_content li {
+   list-style-image: url(SiteStyle/potato.png);
+   list-style-position: inside;
+}
+
+        #sidebar
+        {
+
+            float:left;
+            margin-top:25px;
+            margin-right:25px;
+            color: #889A9C;
+            font-size: small;
+            font-variant: small-caps;
+            line-height: 1.2;
+            padding-right: 10px;
+            border-right: 1px solid #889A9C;
+            width: 200px;
+
+        }
+
+        #footer
+        {
+
+            clear:both;
+            margin:0px;
+            font-size: x-small;
+            color: #830000;
+            background-color: #c4a66d;
+            padding: 10px;
+
+        }
+
+        /* banner */
+         #banner 
+         {
+
+         text-align: left;
+         margin: 0px;
+         padding: 0px;
+         height: 171px;
+         background-color: #c4a66d;
+         background-image: url(banner.jpg);
+         background-repeat: no-repeat;
+         background-position: top right;
+
+         }
+
+         #banner h1
+         {
+
+         color:#43743D;
+         margin:0;
+         font-size: 70px;
+         padding-left: 25px;
+         padding-top: 25px;
+
+         }
+
+         #banner h2
+         {
+
+         color: #000000;
+         border: 0;
+         font-size: 12px;
+         font-variant: small-caps;
+         font-weight: bold;
+         padding-left: 25px;
+         
+      }
+
+      /* Navigation Bar */
+#navigation ul {
+   margin: 0px;
+   padding: 0px;
+   font-size: 14px;
+   font-variant: normal;
+}
+
+#navigation li {
+    list-style-type: none;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#navigation a {
+    color:#43743D;
+    text-decoration: none;
+    cursor: pointer;
+    border-left-width: 20px;
+    border-left-style: solid;
+    border-left-color: #43743D;
+    padding-left: 5px;
+}
+
+#navigation a:hover {
+    color: #AD9676;
+    text-decoration: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #AD9676;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #AD9676;
+    padding-left: 5px;
+}
+
+/* photos */
+.photo {
+    text-align: center;
+    float: right;
+    width: 325px;
+    margin-right: 15px;
+    margin-left: 30px;
+}
+
+.photo p {
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 0;
+} 
+
+.photo img {
+   border-width: 10px;
+   border-style: solid;
+   border-color: #FFFFFF;
+} 
+
+/* tables */
+table {
+   border-collapse: collapse;
+   width: 100%;
+   clear: both;
+   text-align: left;
+}
+td, th {
+   border-style: solid;
+   border-width: thin;
+   border-color: #C6C5C5;
+   padding: 5px;
+   font-size: 0.8em;
+}
+
+/*buttons*/
+
+#pointless-button button {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+#pointless-button p {
+  margin-top: 8px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+/*text styles*/
+#ad {
+    background-color: #f0e68c;
+    border: 1px solid #c6c5c5;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#annoyance {
+    background-color: #ff0000;
+    border: 1px solid #ff7300;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: papyrus, sans-serif;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+}

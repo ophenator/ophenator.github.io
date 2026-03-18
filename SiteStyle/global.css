@@ -253,7 +253,7 @@ td, th {
 
 /*text styles*/
 #ad {
-    background-color: #f0e68c;
+    background-image: url(bubbles.png);
     border: 1px solid #c6c5c5;
     padding: 10px;
     margin-top: 20px;

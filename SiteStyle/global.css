@@ -418,3 +418,9 @@ td, th {
 .product1 h2, .product2 h2, .product3 h2, .product4 h2, .product5 h2, .product6 h2, .product7 h2, .product8 h2, .product9 h2, .product10 h2, .product11 h2, .product12 h2, .product13 h2 {
     margin-top: 0;
 }
+
+.pic-right {
+
+    float: right
+
+}

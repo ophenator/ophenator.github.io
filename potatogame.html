@@ -35,11 +35,11 @@
 </head>
 <body>
 
-    <h1>🥔 Potato Clicker</h1>
+    <h1>Potato Clicker</h1>
 
     <h2 id="count">Potatoes: 0</h2>
 
-    <img id="potato" src="potato.png" onclick="clickPotato()">
+    <img id="potato" src="PagePhotos/potatoclick.jpg" onclick="clickPotato()">
 
     <h3>Upgrades</h3>
     <button class="button" onclick="buyFarmer()">Buy Farmer (Cost: <span id="farmerCost">10</span>)</button>
@@ -66,7 +66,7 @@
         if (potatoes >= farmerCost) {
             potatoes -= farmerCost;
             farmers += 1;
-            farmerCost = Math.floor(farmerCost * 1.5);
+            farmerCost = Math.floor(farmerCost * 15);
             updateDisplay();
         }
     }

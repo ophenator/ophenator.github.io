@@ -6,7 +6,7 @@
         body {
             font-family: Arial;
             text-align: center;
-            background: #f4f1e6;
+            background: #ffffff;
         }
 
         #potato {
@@ -43,18 +43,29 @@
 
     <h3>Upgrades</h3>
     <button class="button" onclick="buyFarmer()">Buy Farmer (Cost: <span id="farmerCost">10</span>)</button>
-
+    <button class="button" onclick="buyTractor()">Buy Tractor (Cost: <span id="tractorCost">100</span>)</button>
+    <button class="button" onclick="buyLand()">Buy More Land (Cost: <span id="landCost">500</span>)</button>
     <p>Farmers: <span id="farmers">0</span></p>
+    <p>Tractors: <span id="tractors">0</span></p>
+    <p>Land: <span id="land">0</span></p>
 
 <script>
     let potatoes = 0;
     let farmers = 0;
+    let tractors = 0;
+    let land = 0;
     let farmerCost = 10;
+    let tractorCost = 100;
+    let landCost = 500;
 
     function updateDisplay() {
         document.getElementById("count").innerText = "Potatoes: " + Math.floor(potatoes);
         document.getElementById("farmers").innerText = farmers;
         document.getElementById("farmerCost").innerText = farmerCost;
+        document.getElementById("tractors").innerText = tractors;
+        document.getElementById("tractorCost").innerText = tractorCost;
+        document.getElementById("land").innerText = land;
+        document.getElementById("landCost").innerText = landCost;
     }
 
     function clickPotato() {
@@ -66,13 +77,31 @@
         if (potatoes >= farmerCost) {
             potatoes -= farmerCost;
             farmers += 1;
-            farmerCost = Math.floor(farmerCost * 15);
+            farmerCost = Math.floor(farmerCost * 1.5);
+            updateDisplay();
+        }
+    }
+
+    function buyTractor() {
+        if (potatoes >= tractorCost) {
+            potatoes -= tractorCost;
+            tractors += 1;
+            tractorCost = Math.floor(tractorCost * 1.5);
+            updateDisplay();
+        }
+    }
+
+    function buyLand() {
+        if (potatoes >= landCost) {
+            potatoes -= landCost;
+            land += 1;
+            landCost = Math.floor(landCost * 1.5);
             updateDisplay();
         }
     }
 
     function autoFarm() {
-        potatoes += farmers * 0.5;
+        potatoes += farmers * 0.5 + tractors * 2 + land * 5;
         updateDisplay();
     }
 
@@ -83,7 +112,11 @@
         localStorage.setItem("potatoSave", JSON.stringify({
             potatoes: potatoes,
             farmers: farmers,
-            farmerCost: farmerCost
+            farmerCost: farmerCost,
+            tractors: tractors,
+            tractorCost: tractorCost,
+            land: land,
+            landCost: landCost
         }));
     }
 
@@ -93,6 +126,10 @@
             potatoes = save.potatoes;
             farmers = save.farmers;
             farmerCost = save.farmerCost;
+            tractors = save.tractors;
+            tractorCost = save.tractorCost;
+            land = save.land;
+            landCost = save.landCost;
         }
     }
 

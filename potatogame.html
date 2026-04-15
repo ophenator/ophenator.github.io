@@ -42,6 +42,7 @@
     <img id="potato" src="PagePhotos/potatoclick.jpg" onclick="clickPotato()">
 
     <h3>Upgrades</h3>
+    <button class="button" onclick="resetGame()">Reset Game</button>
     <button class="button" onclick="buyFarmer()">Buy Farmer (Cost: <span id="farmerCost">10</span>)</button>
     <button class="button" onclick="buyTractor()">Buy Tractor (Cost: <span id="tractorCost">100</span>)</button>
     <button class="button" onclick="buyLand()">Buy More Land (Cost: <span id="landCost">500</span>)</button>
@@ -58,16 +59,24 @@
     let tractorCost = 100;
     let landCost = 500;
 
-    function updateDisplay() {
-        document.getElementById("count").innerText = "Potatoes: " + Math.floor(potatoes);
-        document.getElementById("farmers").innerText = farmers;
-        document.getElementById("farmerCost").innerText = farmerCost;
-        document.getElementById("tractors").innerText = tractors;
-        document.getElementById("tractorCost").innerText = tractorCost;
-        document.getElementById("land").innerText = land;
-        document.getElementById("landCost").innerText = landCost;
-    }
-
+   function updateDisplay() {
+       document.getElementById("count").innerText = "Potatoes: " + Math.floor(potatoes);
+       document.getElementById("farmers").innerText = farmers;
+       document.getElementById("farmerCost").innerText = farmerCost;
+       document.getElementById("tractors").innerText = tractors;
+       document.getElementById("tractorCost").innerText = tractorCost;
+       document.getElementById("land").innerText = land;
+       document.getElementById("landCost").innerText = landCost;
+       // Ensure numeric values for display
+       const displayPotatoes = Number.isFinite(Number(potatoes)) ? Math.floor(Number(potatoes)) : 0;
+       document.getElementById("count").innerText = "Potatoes: " + displayPotatoes;
+       document.getElementById("farmers").innerText = Number.isFinite(Number(farmers)) ? Number(farmers) : 0;
+       document.getElementById("farmerCost").innerText = Number.isFinite(Number(farmerCost)) ? Number(farmerCost) : 10;
+       document.getElementById("tractors").innerText = Number.isFinite(Number(tractors)) ? Number(tractors) : 0;
+       document.getElementById("tractorCost").innerText = Number.isFinite(Number(tractorCost)) ? Number(tractorCost) : 100;
+       document.getElementById("land").innerText = Number.isFinite(Number(land)) ? Number(land) : 0;
+       document.getElementById("landCost").innerText = Number.isFinite(Number(landCost)) ? Number(landCost) : 500;
+     }
     function clickPotato() {
         potatoes += 1;
         updateDisplay();
@@ -105,6 +114,19 @@
         updateDisplay();
     }
 
+     function resetGame() {
+        if (confirm("Are you sure you want to reset your game? This cannot be undone.")) {
+            potatoes = 0;
+            farmers = 0;
+            tractors = 0;
+            land = 0;
+            farmerCost = 10;
+            tractorCost = 100;
+            landCost = 500;
+            updateDisplay();
+        }
+    }
+
     setInterval(autoFarm, 1000);
 
     // Save system
@@ -121,15 +143,20 @@
     }
 
     function loadGame() {
-        let save = JSON.parse(localStorage.getItem("potatoSave"));
-        if (save) {
-            potatoes = save.potatoes;
-            farmers = save.farmers;
-            farmerCost = save.farmerCost;
-            tractors = save.tractors;
-            tractorCost = save.tractorCost;
-            land = save.land;
-            landCost = save.landCost;
+        const raw = localStorage.getItem("potatoSave");
+        if (!raw) return;
+        try {
+            const save = JSON.parse(raw) || {};
+            potatoes = Number(save.potatoes) || 0;
+            farmers = Number(save.farmers) || 0;
+            farmerCost = Number(save.farmerCost) || 10;
+            tractors = Number(save.tractors) || 0;
+            tractorCost = Number(save.tractorCost) || 100;
+            land = Number(save.land) || 0;
+            landCost = Number(save.landCost) || 500;
+        } catch (e) {
+            console.warn("Failed to load potatoSave, clearing corrupt save:", e);
+            localStorage.removeItem("potatoSave");
         }
     }
 

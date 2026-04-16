@@ -35,7 +35,7 @@
 <body>
 
 <h1>Potato Stock Sim</h1>
-<h3>V 1.7.2</h3>
+<h3>V 1.7.3</h3>
 <h2>A <a href="index.html">potato.png</a> game!</h2>
 
 <p id="price">Price: $10</p>
@@ -119,7 +119,7 @@ function updateMarket() {
         setNews("Health scare about potatoes! Demand plummets!");
     } else if (eventRoll < 0.25) {
         setNews("Celebrity endorses potatoes!");
-        change += price * 2;
+        change += price * 1.5;
     } else if (eventRoll < 0.3) {
         setNews("Fun potato website somewhere...");
     } else if (eventRoll < 0.35) {
